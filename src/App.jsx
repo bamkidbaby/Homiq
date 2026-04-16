@@ -234,160 +234,247 @@ export default function App() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid min-h-[calc(100vh-6rem)] items-center gap-14 py-16 md:grid-cols-[1.08fr_0.92fr] md:py-24"
+          className="relative grid min-h-screen items-center gap-16 py-20 md:grid-cols-[1.02fr_0.98fr] md:py-24"
         >
-          <div className="max-w-2xl">
-            <motion.div variants={item} className="mb-6 inline-flex">
-              <span className="rounded-full border border-white/10 bg-white/6 px-4 py-2 text-xs uppercase tracking-[0.28em] text-white/60 backdrop-blur-xl">
-                Smart home, reimagined
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[40px]">
+            <motion.div
+              animate={{ x: [0, 28, -20, 0], y: [0, -18, 24, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute left-[-8rem] top-[8%] h-[24rem] w-[24rem] rounded-full bg-cyan-400/14 blur-[120px]"
+            />
+            <motion.div
+              animate={{ x: [0, -24, 18, 0], y: [0, 20, -16, 0] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute right-[-6rem] top-[12%] h-[28rem] w-[28rem] rounded-full bg-indigo-300/10 blur-[140px]"
+            />
+            <motion.div
+              animate={{ x: [0, 18, -14, 0], y: [0, 22, -10, 0] }}
+              transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-[-8rem] left-[22%] h-[20rem] w-[20rem] rounded-full bg-white/7 blur-[130px]"
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_22%),radial-gradient(circle_at_80%_30%,rgba(34,211,238,0.08),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.04),transparent_38%,rgba(255,255,255,0.02))]" />
+          </div>
+
+          <div className="max-w-2xl pt-10 md:pt-0">
+            <motion.div variants={item} className="mb-7 inline-flex">
+              <span className="rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-[11px] uppercase tracking-[0.32em] text-white/60 backdrop-blur-2xl">
+                The intelligent home OS
               </span>
             </motion.div>
 
             <motion.h1
               variants={item}
-              className="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-[-0.065em] text-white sm:text-6xl lg:text-[4.5rem]"
+              className="max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.075em] sm:text-6xl lg:text-[5rem]"
             >
-              Control your home with calm, clarity, and intelligence.
+              <span className="bg-gradient-to-b from-white via-white to-white/72 bg-clip-text text-transparent">
+                Home control,
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-cyan-200 via-white to-white/55 bg-clip-text text-transparent">
+                designed like software should be.
+              </span>
             </motion.h1>
 
             <motion.p
               variants={item}
-              className="mt-6 max-w-xl text-base leading-7 text-white/62 sm:text-lg"
+              className="mt-7 max-w-xl text-base leading-8 text-white/58 sm:text-lg"
             >
-              Homiq brings lighting, climate, security, and routines into one
-              refined app so your home feels effortless from the first tap.
+              Homiq unifies climate, lighting, access, and routines into a
+              single calm interface with the precision of a premium SaaS product
+              and the warmth of a modern home.
             </motion.p>
 
             <motion.div
               variants={item}
-              className="mt-10 flex flex-col gap-4 sm:flex-row"
+              className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.985 }}
                 href="#features"
-                className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-medium text-slate-950 shadow-[0_16px_40px_rgba(255,255,255,0.12)]"
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/20 bg-cyan-300 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_16px_55px_rgba(34,211,238,0.28)]"
               >
-                Explore Features
+                <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent)] opacity-0 transition duration-500 group-hover:translate-x-full group-hover:opacity-100" />
+                <span className="relative">Get Started</span>
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="#about"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/6 px-6 py-3.5 text-sm font-medium text-white/90 backdrop-blur-xl"
+                className="inline-flex items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] px-6 py-3.5 text-sm font-medium text-white/90 backdrop-blur-2xl"
               >
-                Watch Demo
+                See how it works
               </motion.a>
             </motion.div>
 
             <motion.div
               variants={item}
-              className="mt-12 grid max-w-lg grid-cols-3 gap-4 rounded-[28px] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl"
+              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-white/42"
             >
-              {[
-                { value: "120k+", label: "Homes connected" },
-                { value: "99.99%", label: "Secure uptime" },
-                { value: "4.9/5", label: "User rating" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl bg-black/20 px-4 py-5"
-                >
-                  <div className="text-lg font-semibold tracking-[-0.04em] text-white">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-xs uppercase tracking-[0.18em] text-white/42">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+              <div>
+                <span className="text-lg font-semibold tracking-[-0.04em] text-white">
+                  120k+
+                </span>{" "}
+                connected homes
+              </div>
+              <div>
+                <span className="text-lg font-semibold tracking-[-0.04em] text-white">
+                  4.9/5
+                </span>{" "}
+                user satisfaction
+              </div>
+              <div>
+                <span className="text-lg font-semibold tracking-[-0.04em] text-white">
+                  99.99%
+                </span>{" "}
+                reliable uptime
+              </div>
             </motion.div>
           </div>
 
           <motion.div
             variants={item}
-            className="relative mx-auto w-full max-w-md"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative mx-auto w-full max-w-[36rem]"
           >
-            <div className="absolute inset-0 rounded-[32px] bg-cyan-400/10 blur-3xl" />
-            <div className="relative rounded-[32px] border border-white/10 bg-white/[0.07] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:p-6">
-              <div className="mb-6 flex items-center justify-between">
+            <div className="absolute inset-x-10 top-10 h-40 rounded-full bg-cyan-300/12 blur-[90px]" />
+            <motion.div
+              initial={{ rotate: -4, opacity: 0, scale: 0.96 }}
+              animate={{ rotate: -6, opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute -right-2 top-12 hidden w-48 rounded-[28px] border border-white/10 bg-white/[0.06] p-4 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:block"
+            >
+              <p className="text-[11px] uppercase tracking-[0.24em] text-white/40">
+                Energy Mode
+              </p>
+              <div className="mt-3 h-2 rounded-full bg-white/10">
+                <div className="h-2 w-2/3 rounded-full bg-cyan-300" />
+              </div>
+              <div className="mt-4 flex items-end justify-between">
                 <div>
-                  <p className="text-sm font-medium text-white/92">
-                    {authCopy.title}
+                  <p className="text-2xl font-semibold tracking-[-0.05em] text-white">
+                    68%
                   </p>
-                  <p className="mt-1 text-sm leading-6 text-white/50">
-                    {authCopy.subtitle}
-                  </p>
+                  <p className="text-xs text-white/45">efficiency score</p>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[11px] uppercase tracking-[0.24em] text-cyan-200">
-                  Beta
+                <div className="rounded-xl border border-emerald-300/20 bg-emerald-400/10 px-2 py-1 text-[11px] text-emerald-200">
+                  Stable
                 </div>
               </div>
+            </motion.div>
 
-              <div className="mb-5 grid grid-cols-2 rounded-2xl border border-white/10 bg-black/20 p-1">
-                {["login", "signup"].map((tab) => (
-                  <button
-                    key={tab}
-                    type="button"
-                    onClick={() => setMode(tab)}
-                    className={`rounded-xl px-4 py-2.5 text-sm font-medium capitalize transition ${
-                      mode === tab
-                        ? "bg-white text-slate-950 shadow-sm"
-                        : "text-white/55 hover:text-white"
-                    }`}
-                  >
-                    {tab}
-                  </button>
-                ))}
+            <div className="relative overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.06] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:p-6">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_30%,transparent_70%,rgba(255,255,255,0.04))]" />
+              <div className="relative">
+                <div className="mb-6 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-white/92">
+                      Home overview
+                    </p>
+                    <p className="mt-1 text-sm text-white/45">
+                      Your entire space, at a glance
+                    </p>
+                  </div>
+                  <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-cyan-200">
+                    Live
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
+                  <div className="rounded-[28px] border border-white/10 bg-[#0b0f14] p-5">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.24em] text-white/35">
+                          Climate
+                        </p>
+                        <p className="mt-2 text-4xl font-semibold tracking-[-0.06em] text-white">
+                          22°
+                        </p>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-white/[0.06] px-3 py-2 text-xs text-white/55">
+                        Balanced
+                      </div>
+                    </div>
+                    <div className="mt-8 h-28 rounded-[24px] bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.22),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01))]" />
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-4">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm text-white/65">Front door</p>
+                        <span className="rounded-full bg-emerald-400/10 px-2.5 py-1 text-[11px] uppercase tracking-[0.18em] text-emerald-200">
+                          Locked
+                        </span>
+                      </div>
+                      <div className="mt-4 flex gap-2">
+                        <div className="h-2 flex-1 rounded-full bg-cyan-300" />
+                        <div className="h-2 w-8 rounded-full bg-white/10" />
+                      </div>
+                    </div>
+
+                    <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-4">
+                      <p className="text-sm text-white/65">Scenes</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {["Away", "Evening", "Focus"].map((scene) => (
+                          <span
+                            key={scene}
+                            className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-xs text-white/70"
+                          >
+                            {scene}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 rounded-[28px] border border-white/10 bg-black/20 p-4">
+                  <div className="mb-4 flex items-center justify-between">
+                    <p className="text-sm text-white/65">Quick access</p>
+                    <p className="text-xs uppercase tracking-[0.22em] text-white/35">
+                      4 devices active
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    {[
+                      { name: "Lights", value: "86%" },
+                      { name: "Security", value: "On" },
+                      { name: "Music", value: "Living room" },
+                    ].map((tile) => (
+                      <div
+                        key={tile.name}
+                        className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4"
+                      >
+                        <p className="text-xs uppercase tracking-[0.18em] text-white/35">
+                          {tile.name}
+                        </p>
+                        <p className="mt-2 text-sm font-medium text-white">
+                          {tile.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-
-              <AnimatePresence mode="wait">
-                <motion.form
-                  key={mode}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="space-y-4"
-                >
-                  {mode === "signup" && (
-                    <AuthField label="Name" placeholder="Alex Carter" />
-                  )}
-                  <AuthField
-                    label="Email"
-                    type="email"
-                    placeholder="alex@homiq.app"
-                  />
-                  <AuthField
-                    label="Password"
-                    type="password"
-                    placeholder="Enter your password"
-                  />
-
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full rounded-2xl bg-cyan-400 px-4 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_14px_35px_rgba(34,211,238,0.28)]"
-                  >
-                    {authCopy.cta}
-                  </motion.button>
-
-                  <p className="pt-1 text-center text-sm text-white/46">
-                    {authCopy.helper}{" "}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setMode(mode === "login" ? "signup" : "login")
-                      }
-                      className="font-medium text-white transition hover:text-cyan-200"
-                    >
-                      {authCopy.switchLabel}
-                    </button>
-                  </p>
-                </motion.form>
-              </AnimatePresence>
             </div>
+
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 5.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute -bottom-5 -left-3 hidden rounded-[26px] border border-white/10 bg-white/[0.07] px-4 py-3 shadow-[0_18px_60px_rgba(0,0,0,0.3)] backdrop-blur-2xl sm:block"
+            >
+              <p className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+                Automation
+              </p>
+              <p className="mt-2 text-sm font-medium text-white">
+                Good evening scene scheduled
+              </p>
+            </motion.div>
           </motion.div>
         </motion.section>
 
